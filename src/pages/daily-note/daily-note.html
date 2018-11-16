@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-right icon-start>
+      <ion-icon name="create" style="font-size:20px;"></ion-icon>
+      Apontamento diário
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <ion-list>
+    <ion-item>
+      <ion-label>Data: </ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" min="1990-12" max="2050-12" [(ngModel)]="event.dateSelected"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label item-start>Total Horas diárias: </ion-label>
+      <div item-end>{{event.hoursTotal}}</div>
+    </ion-item>
+    <ion-item>
+      <table class="fixed_headers">
+        <thead>
+          <tr>
+            <th>Horário</th>
+            <th>Apontamento</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let note of notesModel">
+            <td>{{note.hour}}</td>
+            <td>{{note.note}}</td>
+            <td>
+              <button ion-button clear color="dark" icon-only (click)="onClickCheckRemove(note)">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ion-item>
+    <ion-item>
+      <ion-label item-start>Total apontamentos: </ion-label>
+      <div item-end>{{sumHoursNote}}</div>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Horário</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="event.timeNote"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Apontamento</ion-label>
+      <ion-input type="text" [(ngModel)]="event.note"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding text-center>
+    <button ion-button icon-start>
+      <ion-icon ios="ios-document" md="md-document"></ion-icon>
+      <ion-label>SALVAR</ion-label>
+    </button>
+  </div>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-right icon-start>
+      <ion-icon name="settings" style="font-size:20px;"></ion-icon>
+      Configuração
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="settingModel.name"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label stacked>Total de horas mês</ion-label>
+    </ion-item>
+    <ion-item no-line>
+      <input type="number" [(ngModel)]="settingModel.hourTotalMonth" />
+      <ion-icon item-right name="remove-circle" color="danger" (click)="onClickDecrement()"></ion-icon>
+      <ion-icon item-right name="add-circle" color="secondary" (click)="onClickIncrement()"></ion-icon>
+    </ion-item>
+  </ion-list>
+  <div padding text-center>
+    <button ion-button icon-start (click)="onClickSave()">
+      <ion-icon ios="ios-document" md="md-document"></ion-icon>
+      <ion-label>SALVAR</ion-label>
+    </button>
+  </div>
+</ion-content>
