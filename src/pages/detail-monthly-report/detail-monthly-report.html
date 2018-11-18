@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-right icon-start>
+      <ion-icon name="copy" style="font-size:20px;"></ion-icon>
+      Relatório Mensal - Det.
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <h3 padding>Nome: {{namePerson}}</h3>
+  <ion-list>
+    <ion-item>
+      <ion-label>Mês do relatório: </ion-label>
+      <ion-datetime displayFormat="MM/YYYY" pickerFormat="MM YYYY" min="1990-12" max="2050-12" [(ngModel)]="monthSelected"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <table class="fixed_headers">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Apontamento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pointed of pointedModel">
+            <td>{{pointed.date}}</td>
+            <td>{{pointed.note}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ion-item>
+    <ion-item>
+      <ion-label>Total de horas apontadas: {{sumHoursPointed}} horas</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div padding text-center>
+    <button ion-button icon-start (click)='onClickButton(idModel)'>
+      <ion-icon name="list-box"></ion-icon>
+      <ion-label>Visualizar sintético</ion-label>
+    </button>
+  </div>
+</ion-content>

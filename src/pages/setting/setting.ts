@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'setting',
@@ -10,17 +10,8 @@ export class SettingPage {
   settingModel: any = { name: '', hourTotalMonth: 0 };
   currentNumber: number = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController) {
 
-    //this.selectedItem = navParams.get('item');
-
-  }
-
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(SettingPage, {
-      item: item
-    });
   }
 
   onClickIncrement() {

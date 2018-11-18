@@ -6,6 +6,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { DailyReleasePage } from '../pages/daily-release/daily-release';
 import { DailyNotePage } from '../pages/daily-note/daily-note';
+import { MonthlyReportPage } from '../pages/monthly-report/monthly-report';
+import { DetailMonthlyReportPage } from '../pages/detail-monthly-report/detail-monthly-report';
 import { SettingPage } from '../pages/setting/setting';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -16,6 +18,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     DailyReleasePage,
     DailyNotePage,
+    MonthlyReportPage,
+    DetailMonthlyReportPage,
     SettingPage
   ],
   imports: [
@@ -27,6 +31,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     DailyReleasePage,
     DailyNotePage,
+    MonthlyReportPage,
+    DetailMonthlyReportPage,
     SettingPage
   ],
   providers: [

@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { DailyReleasePage } from '../pages/daily-release/daily-release';
 import { DailyNotePage } from '../pages/daily-note/daily-note';
+import { MonthlyReportPage } from '../pages/monthly-report/monthly-report';
+import { DetailMonthlyReportPage } from '../pages/detail-monthly-report/detail-monthly-report';
 import { SettingPage } from '../pages/setting/setting';
 
 @Component({
@@ -24,6 +26,8 @@ export class MyApp {
     this.pages = [
       { title: 'Lançamento diário', component: DailyReleasePage, icon: "create" },
       { title: 'Tarefas diárias', component: DailyNotePage, icon: "create" },
+      { title: 'Relatório Mensal Sintético', component: MonthlyReportPage, icon: "copy" },
+      { title: 'Relatório Mensal Detalhado', component: DetailMonthlyReportPage, icon: "copy" },
       { title: 'Configuração', component: SettingPage, icon: "settings" }
     ];
 
