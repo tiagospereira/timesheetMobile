@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Time Sheet Mobile",
+  "short_name": "TSM",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
