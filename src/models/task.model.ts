@@ -1,13 +1,14 @@
-import { getUTCInSecond } from './../util/date.util';
+import { DateUtil } from "../util/date.util";
 
-export class Task {
+export class TaskModel {
 
-  public id: number;
-
-  constructor( public dateTime : Date,
-               public title : string) {
-    this.id = getUTCInSecond()
-
+  public id: Number;
+  constructor(
+      public date:string,
+      public timeNote:Number,
+      public note:string
+  ) {
+    this.id = DateUtil.generateUTCInSecond();
   }
 
 }

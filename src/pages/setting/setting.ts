@@ -1,5 +1,8 @@
+import { SettingModel } from './../../models/setting.model';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+import { SettingService } from '../../providers/setting/setting.service';
+
 
 @Component({
   selector: 'setting',
@@ -7,20 +10,18 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SettingPage {
 
-  settingModel: any = { name: '', hourTotalMonth: 0 };
+  settingModel: SettingModel = { name: '', hourTotalMonth: 0 };
   currentNumber: number = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-
-    //this.selectedItem = navParams.get('item');
-
+  constructor(public navCtrl: NavController,
+    public settingService: SettingService) {
   }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(SettingPage, {
-      item: item
-    });
+  ionViewDidLoad() {
+    this.settingService.get()
+      .then((settingModel: SettingModel) => {
+        if(settingModel)  this.settingModel = settingModel;
+      })
   }
 
   onClickIncrement() {
@@ -36,7 +37,15 @@ export class SettingPage {
   }
 
   onClickSave() {
-    console.log(this.settingModel.name);
-    console.log(this.settingModel.hourTotalMonth);
+    //TODO: revisar mensanges e validações
+    this.settingService.save(this.settingModel)
+      .then((response) => {
+        console.log(response);
+
+      }).catch((error) => {
+
+        console.log(error);
+
+      });
   }
 }
